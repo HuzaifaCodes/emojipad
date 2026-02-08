@@ -45,17 +45,17 @@
 ### Main Dashboard
 *The main dashboard showing the numpad grid with emoji mappings in Smileys mode*
 
-![Dashboard](https://via.placeholder.com/800x600/1a1a2e/eee?text=EmojiPad+Dashboard)
+![Dashboard](images/dashboard.png)
 
 ### Emoji Picker
 *Search and select from 1000+ emojis organized by category*
 
-![Emoji Picker](https://via.placeholder.com/600x500/16213e/eee?text=Emoji+Picker+Dialog)
+![Emoji Picker](images/emoji_picker.png)
 
-### System Tray
-*Convenient system tray menu for quick access*
+### Settings
+*Customize hotkeys and preferences*
 
-![System Tray](https://via.placeholder.com/300x200/0f3460/eee?text=System+Tray+Menu)
+![Settings](images/settings.png)
 
 ---
 
