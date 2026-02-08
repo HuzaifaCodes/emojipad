@@ -1,0 +1,6 @@
+customtkinter
+keyboard
+emoji
+pyperclip
+pillow
+pystray
