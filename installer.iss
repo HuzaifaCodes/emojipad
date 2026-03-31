@@ -52,6 +52,27 @@ Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [Code]
+function InitializeSetup(): Boolean;
+var
+  ResultCode: Integer;
+  UninstallPath: String;
+  UninstallString: String;
+begin
+  Result := True;
+  
+  // Try 64-bit registry first
+  if RegQueryStringValue(HKLM64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}_is1', 'QuietUninstallString', UninstallString) or
+     RegQueryStringValue(HKLM, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}_is1', 'QuietUninstallString', UninstallString) or
+     RegQueryStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}_is1', 'QuietUninstallString', UninstallString) then
+  begin
+    if MsgBox('An existing version of ' + '{#MyAppName}' + ' is already installed. Do you want to uninstall the previous version before installing this one?', mbConfirmation, MB_YESNO) = idYes then
+    begin
+      UninstallPath := RemoveQuotes(UninstallString);
+      Exec(UninstallPath, '', '', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode);
+    end;
+  end;
+end;
+
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
   if CurStep = ssPostInstall then

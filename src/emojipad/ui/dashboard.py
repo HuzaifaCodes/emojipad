@@ -1,9 +1,9 @@
 import customtkinter as ctk
-from core.emoji_manager import EmojiManager
-from core.key_listener import KeyListener
-from core.settings import Settings
-from ui.emoji_picker import EmojiPickerDialog
-from ui.settings_dialog import SettingsDialog
+from emojipad.core.emoji_manager import EmojiManager
+from emojipad.core.key_listener import KeyListener
+from emojipad.core.settings import Settings
+from emojipad.ui.emoji_picker import EmojiPickerDialog
+from emojipad.ui.settings_dialog import SettingsDialog
 import threading
 import keyboard
 import pystray
