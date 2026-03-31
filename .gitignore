@@ -27,7 +27,7 @@ env/
 
 # PyInstaller
 *.manifest
-*.spec
+# *.spec  (Allowing customized spec files to be tracked)
 
 # IDE
 .vscode/
